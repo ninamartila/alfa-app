@@ -1,3 +1,11 @@
 === npx sequelize model:generate --name User --attributes nama:string,phone_number:string,email:string,username:string,password:string
-=== npx sequelize model:generate --name Produk --attributes nama_produk:string,harga_produk:integer,stok_produk:integer,image:string,kategori:string,deskripsi:string,kode_produk:string
-=== npx sequelize model:generate --name Order --attributes IdProduk:integer,IdUser:integer,item:array,total_harga:integer,quantity:integer
+=== npx sequelize model:generate --name Produk --attributes nama_produk:string,harga_produk:integer,stok_produk:integer,image:text,kategori:string,deskripsi:text,kode_produk:string
+=== npx sequelize model:generate --name Order --attributes ProdukId:integer,UserId:integer,total_harga:integer,quantity:integer,status:string
+
+hooks: {
+      beforeCreate(instance) {
+        instance.password = hasPassword(instance.password)
+      }
+    },
+
+    User.belongsToMany(models.Produk, { through: models.Order })

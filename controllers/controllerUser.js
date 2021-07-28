@@ -1,4 +1,3 @@
-const { render } = require('ejs');
 const { checkPassword } = require('../helper/bcrypt');
 const { User } = require('../models');
 class ControllerUser {
@@ -53,16 +52,17 @@ class ControllerUser {
             .then(() => {
                 res.redirect('/users/login')
             }).catch(err => {
+                console.log(err);
                 res.send(err)
             });
     }
 
     static user(req, res) {
-        const dataIdUser = Number(req.params.idUser)
+        const dataUserId = Number(req.params.UserId)
 
-        User.findByPk(dataIdUser)
+        User.findByPk(dataUserId)
             .then(dataUser => {
-                res.render('user', { dataUser, dataIdUser })
+                res.render('user', { dataUser, dataUserId })
             })
             .catch(err => {
                 res.send(err)
@@ -70,17 +70,17 @@ class ControllerUser {
     }
 
     static userEdit(req, res) {
-        const dataIdUser = Number(req.params.idUser)
+        const dataUserId = Number(req.params.UserId)
 
-        User.findByPk(dataIdUser)
+        User.findByPk(dataUserId)
             .then(dataUser => {
-                res.render('userEdit', { dataUser, dataIdUser })
+                res.render('userEdit', { dataUser, dataUserId })
             })
     }
 
     static userEditPost(req, res) {
         const dataUpdate = {
-            idUser: Number(req.params.idUser),
+            UserId: Number(req.params.UserId),
             nama: req.body.nama,
             phone_number: req.body.phone_number,
             email: req.body.email,
@@ -90,11 +90,11 @@ class ControllerUser {
         console.log(dataUpdate);
         User.update(dataUpdate, {
             where: {
-                id: dataUpdate.idUser
+                id: dataUpdate.UserId
             }
         })
             .then(() => {
-                res.redirect(`/users/${dataUpdate.idUser}`)
+                res.redirect(`/users/${dataUpdate.UserId}`)
             })
             .catch(err => {
                 res.send(err)

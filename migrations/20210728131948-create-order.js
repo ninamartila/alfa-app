@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      IdProduk: {
+      ProdukId: {
         type: Sequelize.INTEGER,
         reference: {
           model: 'Produks',
@@ -17,7 +17,7 @@ module.exports = {
         onDelete: 'cascade',
         onUpdate: 'cascade'
       },
-      IdUser: {
+      UserId: {
         type: Sequelize.INTEGER,
         reference: {
           model: 'Users',
@@ -31,6 +31,9 @@ module.exports = {
       },
       quantity: {
         type: Sequelize.INTEGER
+      },
+      status: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,

@@ -2,10 +2,10 @@ const { Produk, Order } = require('../models');
 
 class ControllerProduk {
     static produk(req, res) {
-        const dataIdUser = Number(req.params.idUser)
+        const dataUserId = Number(req.params.UserId)
         Produk.findAll()
             .then(dataProduk => {
-                res.render('produk', { dataProduk, dataIdUser })
+                res.render('produk', { dataProduk, dataUserId })
             })
             .catch(err => {
                 res.send(err)
@@ -15,7 +15,7 @@ class ControllerProduk {
     static addOrder(req, res) {
         let dataOrder
         const dataId = {
-            UserId: Number(req.params.idUser),
+            UserId: Number(req.params.UserId),
             ProdukId: Number(req.params.id)
         }
 
@@ -30,9 +30,20 @@ class ControllerProduk {
                 })
             })
             .then(() => {
-                res.redirect(`/produks/${dataNew.UserId}`)
+                const dataKeranjang = {
+                    UserId: dataId.UserId,
+                    ProdukId: dataId.ProdukId,
+                    quantity: 1,
+                    total_harga: dataOrder.harga_produk,
+                    status: 'cart'
+                }
+                return Order.create(dataKeranjang)
+            })
+            .then(() => {
+                res.redirect(`/produks/${dataId.UserId}`)
             })
             .catch(err => {
+                console.log(err);
                 res.send(err)
             })
     }

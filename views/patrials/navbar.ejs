@@ -1,11 +1,24 @@
 <ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a class="nav-link <%= activeProduk %>" href="/produks/<%= dataIdUser %>">Produk</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link <%= activeUser %>" href="/users/<%= dataIdUser %>">User</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link <%= activeOrder %> disabled" href="/orders">History Order</a>
-    </li>
+  <li class="nav-item">
+    <a class="nav-link <%= activeProduk %>" href="/produks/<%= dataUserId %>"
+      >Produk</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= activeUser %>" href="/users/<%= dataUserId %>"
+      >User</a
+    >
+  </li>
+  <li class="nav-item">
+    <a
+      class="nav-link <%= activeKeranjang %>"
+      href="/orders/<%= dataUserId %>/keranjang"
+      >Keranjang</a
+    >
+  </li>
+  <li class="nav-item">
+    <a class="nav-link <%= activeOrder %> disabled" href="/orders"
+      >History Order</a
+    >
+  </li>
 </ul>

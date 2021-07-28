@@ -7,9 +7,9 @@ routerUser.post('/login', ControllerUser.loginPost)
 routerUser.get('/logout', ControllerUser.logout)
 routerUser.get('/register', ControllerUser.register)
 routerUser.post('/register', ControllerUser.registerPost)
-routerUser.get('/:idUser', checkIsLogin, ControllerUser.user)
-routerUser.get('/:idUser/edit', checkIsLogin, ControllerUser.userEdit)
-routerUser.post('/:idUser/edit', checkIsLogin, ControllerUser.userEditPost)
+routerUser.get('/:UserId', checkIsLogin, ControllerUser.user)
+routerUser.get('/:UserId/edit', checkIsLogin, ControllerUser.userEdit)
+routerUser.post('/:UserId/edit', checkIsLogin, ControllerUser.userEditPost)
 
 function checkIsLogin(req, res, next) {
     if (req.session.isLogin) {
