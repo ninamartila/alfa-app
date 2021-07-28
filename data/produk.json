@@ -1,0 +1,47 @@
+[
+    {
+        "nama_produk": "Oreo",
+        "harga_produk": 10000,
+        "stok_produk": 10,
+        "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/MTA-1459488/oreo_oreo-vanilla--133-g-2-pcs-_full05.jpg",
+        "kategori": "makanan",
+        "deskripsi": "Oreo adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "kode_produk": "KLMN-makanan-oreo"
+    },
+    {
+        "nama_produk": "Chocolatos",
+        "harga_produk": 8000,
+        "stok_produk": 20,
+        "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//98/MTA-7507429/chocolatos_chocolatos_drink_minuman_coklat_-30_sachet-_full02_picl8k4x.jpg",
+        "kategori": "minuman",
+        "deskripsi": "Chocolatos adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "kode_produk": "KLMN-makanan-chocolatos"
+    },
+    {
+        "nama_produk": "Super Pell",
+        "harga_produk": 20000,
+        "stok_produk": 5,
+        "image": "https://www.watsons.co.id/medias/SUPER-PELL-GREEN-REF-1600ML6-16679.jpg?context=bWFzdGVyfGZyb250L3pvb218MjkwMjcxfGltYWdlL2pwZWd8ZnJvbnQvem9vbS9oMTUvaDNkLzg5NTI3Mzk3NTgxMTAuanBnfGY0NTFkZTZlZTdhNzk2MTk4YWVkZmI4MDkyODZkNTdhODg5YmY5NTdmNjJmY2FiM2YyZGJmNDlhZWZjMWE4ZGU",
+        "kategori": "Bahan rumah tangga",
+        "deskripsi": "Super pell adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "kode_produk": "KLMN-bahan-rumah-tangga-super-pell"
+    },
+    {
+        "nama_produk": "Fanta",
+        "harga_produk": 18000,
+        "stok_produk": 15,
+        "image": "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//96/MTA-2622975/fanta_fanta-strawberry-pet-1-5-liter_full02.jpg",
+        "kategori": "minuman",
+        "deskripsi": "Fanta adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "kode_produk": "KLMN-minuman-fanta"
+    },
+    {
+        "nama_produk": "Nabati",
+        "harga_produk": 5000,
+        "stok_produk": 25,
+        "image": "https://assets.klikindomaret.com/products/20055311/20055311_1.jpg",
+        "kategori": "makanan",
+        "deskripsi": "Nabati adalah Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "kode_produk": "KLMN-makanan-nabati"
+    }
+]
