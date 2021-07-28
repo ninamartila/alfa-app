@@ -4,6 +4,28 @@
 <body style="padding:20px">
     <h1>User</h1>
     <%- include('./patrials/navbar.ejs', {activeProduk: '' , activeUser: 'active' , activeOrder:''});%>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Nama</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" value="<%= dataUser.nama %>"
+            name="nama" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" value="<%= dataUser.phone_number %>"
+            name="phone_number" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">email</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" value="<%= dataUser.email %>"
+            name="email" disabled>
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Username</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" value="<%= dataUser.username %>"
+            name="username" disabled>
+    </div>
+    <a class="btn btn-danger" style="margin: 30px 0;" href="/users/logout">logout</a>
+    <a class="btn btn-warning" style="margin: 30px 0;" href="/users/<%= dataIdUser %>/edit">Edit</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

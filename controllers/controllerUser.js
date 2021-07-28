@@ -1,3 +1,4 @@
+const { render } = require('ejs');
 const { checkPassword } = require('../helper/bcrypt');
 const { User } = require('../models');
 class ControllerUser {
@@ -20,7 +21,7 @@ class ControllerUser {
                 const isPasswordMatch = checkPassword(dataFind.password, data.password)
                 if (isPasswordMatch) {
                     req.session.isLogin = true
-                    res.redirect('/produks')
+                    res.redirect(`/produks/${data.id}`)
                 } else {
                     res.send('username/password salah')
                 }
@@ -54,6 +55,50 @@ class ControllerUser {
             }).catch(err => {
                 res.send(err)
             });
+    }
+
+    static user(req, res) {
+        const dataIdUser = Number(req.params.idUser)
+
+        User.findByPk(dataIdUser)
+            .then(dataUser => {
+                res.render('user', { dataUser, dataIdUser })
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
+    static userEdit(req, res) {
+        const dataIdUser = Number(req.params.idUser)
+
+        User.findByPk(dataIdUser)
+            .then(dataUser => {
+                res.render('userEdit', { dataUser, dataIdUser })
+            })
+    }
+
+    static userEditPost(req, res) {
+        const dataUpdate = {
+            idUser: Number(req.params.idUser),
+            nama: req.body.nama,
+            phone_number: req.body.phone_number,
+            email: req.body.email,
+            username: req.body.username,
+        }
+
+        console.log(dataUpdate);
+        User.update(dataUpdate, {
+            where: {
+                id: dataUpdate.idUser
+            }
+        })
+            .then(() => {
+                res.redirect(`/users/${dataUpdate.idUser}`)
+            })
+            .catch(err => {
+                res.send(err)
+            })
     }
 }
 

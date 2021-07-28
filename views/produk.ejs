@@ -3,7 +3,6 @@
 <%- include('./patrials/header.ejs', {title: 'Produk' }); %>
     <body style="padding:20px">
         <h1>Produk</h1>
-        <a class="btn btn-danger" style="margin: 50px 0;" href="/users/logout">logout</a>
         <%- include('./patrials/navbar.ejs', {activeProduk: 'active' , activeUser: '' , activeOrder:''});%>
         <table class="table">
          <thead>
@@ -29,7 +28,7 @@
                      <td><%= item.deskripsi %></td>
                      <td><%= item.kode_produk %></td>
                      <td>
-                         <a class="btn btn-outline-warning" href="/order/<%= item.id %>/edit">Add Card</a>
+                         <a class="btn btn-outline-warning" href="/orders/<%= dataIdUser %>/<%= item.id %>/add">Add Card</a>
                      </td>
                  </tr>
              <% }) %>
