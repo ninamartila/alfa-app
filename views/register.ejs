@@ -3,6 +3,32 @@
 <%- include('./patrials/header.ejs', {title: 'Register' }); %>
 <body style="padding:20px">
     <h1>Register</h1>
+    <form action="/users/register" method="POST">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nama</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan username"
+                name="nama">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan username" name="phone_number">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">email</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan username" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Username</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan username"
+                name="username">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Password</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan password"
+                name="password">
+        </div>
+        <input type="submit" class="btn btn-primary" id="exampleFormControlInput1" value="Register">
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

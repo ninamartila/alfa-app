@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/rmt-14-nairobi-fox/p1-livecode-week-3#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "pg": "^8.7.0",
     "sequelize": "^6.6.5"
   },

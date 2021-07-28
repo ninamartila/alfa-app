@@ -4,8 +4,16 @@ const routerProduk = require('./routerProduk');
 const routerUser = require('./routerUser');
 const router = express.Router()
 
-router.use('/produks', routerProduk)
+router.use('/produks', checkIsLogin, routerProduk)
 router.use('/users', routerUser)
-router.use('/orders', routerOrder)
+router.use('/orders', checkIsLogin, routerOrder)
+
+function checkIsLogin(req, res, next) {
+    if (req.session.isLogin) {
+        next()
+    } else {
+        res.redirect('/users/login')
+    }
+}
 
 module.exports = router
