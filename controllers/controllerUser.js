@@ -52,7 +52,15 @@ class ControllerUser {
             password: req.body.password
         }
 
-        User.create(dataNew)
+        User.findOne({ where: { email: req.body.email } })
+            .then((result) => {
+                if(result) {
+                    const err = "Not Found"
+                    res.send(err)
+                } else {
+                    return User.create(dataNew)
+                }
+            })
             .then(() => {
                 const transporter = nodemailer.createTransport({
                     service: 'gmail',
@@ -71,19 +79,15 @@ class ControllerUser {
 
                 transporter.sendMail(mailOptions, (err, data) => {
                     if (err) {
-                        throw err
+                        console.log(err)
                     } else {
-
                         res.redirect('/users/login')
                     }
                 })
-
-
-
-            }).catch(err => {
-                console.log(err);
+            })
+            .catch((err) => {
                 res.send(err)
-            });
+            })
     }
 
     static user(req, res) {
