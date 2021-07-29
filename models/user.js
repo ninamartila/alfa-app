@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.belongsToMany(models.Produk, { through: models.Order })
     }
+
+    static getKode() {
+      return 'Welcome in Alfa App'
+    }
   };
   User.init({
     nama: DataTypes.STRING,

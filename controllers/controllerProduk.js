@@ -49,7 +49,7 @@ class ControllerProduk {
     }
 
     static keranjang(req, res) {
-        const dataUserId = req.params.UserId
+        const dataUserId = Number(req.params.UserId)
 
         Order.findAll({
             attributes: ["ProdukId", "UserId", "total_harga", "quantity", "status", "createdAt", "updatedAt", 'id'],
@@ -83,20 +83,21 @@ class ControllerProduk {
     }
 
     static seeProduk(req, res) {
-        const dataUserId = req.params.UserId
+        const dataUserId = Number(req.params.UserId)
         const dataId = Number(req.params.id)
 
-        Produk.findAll(dataId)
+        Produk.findByPk(dataId)
             .then(dataProduk => {
                 res.render('seeProduk', { dataProduk, dataUserId })
             })
             .catch(err => {
+                console.log(err);
                 res.send(err)
             })
     }
 
     static readyOrder(req, res) {
-        const dataUserId = req.params.UserId
+        const dataUserId = Number(req.params.UserId)
 
         Order.findAll({
             attributes: ["ProdukId", "UserId", "total_harga", "quantity", "status", "createdAt", "updatedAt", 'id'],

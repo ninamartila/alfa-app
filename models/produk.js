@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Produk.belongsToMany(models.User, { through: models.Order })
     }
+
+    rupiah() {
+      return `Rp. ${this.harga_produk}`
+    }
   };
   Produk.init({
     nama_produk: DataTypes.STRING,

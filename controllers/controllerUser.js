@@ -5,7 +5,8 @@ const nodemailer = require('nodemailer');
 
 class ControllerUser {
     static login(req, res) {
-        res.render('login')
+        const welcome = User.getKode()
+        res.render('login', { welcome })
     }
 
     static loginPost(req, res) {
@@ -72,7 +73,7 @@ class ControllerUser {
                     if (err) {
                         throw err
                     } else {
-                        
+
                         res.redirect('/users/login')
                     }
                 })
@@ -121,6 +122,22 @@ class ControllerUser {
         })
             .then(() => {
                 res.redirect(`/users/${dataUpdate.UserId}`)
+            })
+            .catch(err => {
+                res.send(err)
+            })
+    }
+
+    static userDelete(req, res) {
+        const dataUserId = Number(req.params.UserId)
+
+        User.destroy({
+            where: {
+                id: dataUserId
+            }
+        })
+            .then(() => {
+                res.redirect('/users/login')
             })
             .catch(err => {
                 res.send(err)

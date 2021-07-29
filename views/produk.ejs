@@ -13,8 +13,6 @@
           <th scope="col">Harga Produk</th>
           <th scope="col">Stok Produk</th>
           <th scope="col">Kategori</th>
-          <th scope="col">Deskripsi</th>
-          <th scope="col">Kode Produk</th>
           <th scope="col">action</th>
         </tr>
       </thead>
@@ -24,11 +22,9 @@
           <td>
             <a href="/orders/<%= dataUserId %>/<%= item.id %>/seeProduk"><img src="<%= item.image %>" style="width: 200px" /></a></td>
           <td><%= item.nama_produk %></td>
-          <td><%= item.harga_produk %></td>
+          <td><%= item.rupiah() %></td>
           <td><%= item.stok_produk %></td>
           <td><%= item.kategori %></td>
-          <td><%= item.deskripsi %></td>
-          <td><%= item.kode_produk %></td>
           <td>
             <a
               class="btn btn-outline-warning"

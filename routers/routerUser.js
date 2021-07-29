@@ -10,6 +10,7 @@ routerUser.post('/register', ControllerUser.registerPost)
 routerUser.get('/:UserId', checkIsLogin, ControllerUser.user)
 routerUser.get('/:UserId/edit', checkIsLogin, ControllerUser.userEdit)
 routerUser.post('/:UserId/edit', checkIsLogin, ControllerUser.userEditPost)
+routerUser.get('/:UserId/delete', checkIsLogin, ControllerUser.userDelete)
 
 function checkIsLogin(req, res, next) {
     if (req.session.isLogin) {
