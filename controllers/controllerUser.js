@@ -112,10 +112,8 @@ class ControllerUser {
             nama: req.body.nama,
             phone_number: req.body.phone_number,
             email: req.body.email,
-            username: req.body.username,
         }
 
-        console.log(dataUpdate);
         User.update(dataUpdate, {
             where: {
                 id: dataUpdate.UserId

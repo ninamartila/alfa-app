@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./patrials/header.ejs', {title: 'Produk' }); %>
+  <%- include('./patrials/header.ejs', {title: 'History Order' }); %>
   <body style="padding: 20px">
-    <h1>Produk</h1>
-    <%- include('./patrials/navbar.ejs', {activeProduk: 'active' , activeUser:
-    '' , activeOrder:'', activeKeranjang: ''});%>
+    <h1>History Order'</h1>
+    <%- include('./patrials/navbar.ejs', {activeProduk: '' , activeUser:
+    '' , activeOrder:'active', activeKeranjang: ''});%>
     <table class="table">
+      <table class="table">
       <thead>
         <tr>
           <th scope="col">Image</th>
           <th scope="col">Nama Produk</th>
           <th scope="col">Harga Produk</th>
-          <th scope="col">Stok Produk</th>
-          <th scope="col">Kategori</th>
-          <th scope="col">Deskripsi</th>
           <th scope="col">Kode Produk</th>
-          <th scope="col">action</th>
+          <th scope="col">Total Qantity Produk</th>
+          <th scope="col">Total Harga Produk</th>
         </tr>
       </thead>
       <tbody>
         <% dataProduk.forEach(item =>{ %>
         <tr>
           <td>
-            <a href="/orders/<%= dataUserId %>/<%= item.id %>/seeProduk"><img src="<%= item.image %>" style="width: 200px" /></a></td>
+            <img src="<%= item.image %>" style="width: 50px" />
+          </td>
           <td><%= item.nama_produk %></td>
           <td><%= item.harga_produk %></td>
-          <td><%= item.stok_produk %></td>
-          <td><%= item.kategori %></td>
-          <td><%= item.deskripsi %></td>
           <td><%= item.kode_produk %></td>
-          <td>
-            <a
-              class="btn btn-outline-warning"
-              href="/orders/<%= dataUserId %>/<%= item.id %>/add"
-              >Add Cart</a
-            >
-          </td>
+          <td><%= item.quantity %></td>
+          <td><%= item.total_harga %></td>
         </tr>
         <% }) %>
       </tbody>

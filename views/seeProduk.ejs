@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./patrials/header.ejs', {title: 'See Produk' }); %>
+  <body style="padding: 20px">
+    <div class="text-center">
+      <h1>See Produk</h1>
+      <img src="<%= dataProduk.image %>" class="rounded" width="200px">
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Kode Produk : </label>
+    <label for="exampleFormControlInput1" class="form-label"><%= dataProduk.kode_produk %></label>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Nama Produk : </label>
+    <label for="exampleFormControlInput1" class="form-label"><%= dataProduk.nama_produk %></label>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">harga Produk : </label>
+    <label for="exampleFormControlInput1" class="form-label"><%= dataProduk.harga_produk %></label>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Stok Produk : </label>
+    <label for="exampleFormControlInput1" class="form-label"><%= dataProduk.stok_produk %></label>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Kategori : </label>
+    <label for="exampleFormControlInput1" class="form-label"><%= dataProduk.kategori %></label>
+    </div>
+    <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Deskripsi : </label>
+    <label for="exampleFormControlInput1" class="form-label"><%= dataProduk.deskripsi %></label>
+    </div>
+    <a href="/produks/<%= dataUserId %>" class="btn btn-primary">Back</a>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
