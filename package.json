@@ -18,12 +18,15 @@
   },
   "homepage": "https://github.com/rmt-14-nairobi-fox/p1-livecode-week-3#readme",
   "dependencies": {
+    "@vonage/server-sdk": "^2.10.10",
     "bcryptjs": "^2.4.3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
+    "nodemailer": "^6.6.3",
     "pg": "^8.7.0",
-    "sequelize": "^6.6.5"
+    "sequelize": "^6.6.5",
+    "twilio": "^3.66.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.12",

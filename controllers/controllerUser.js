@@ -1,5 +1,8 @@
 const { checkPassword } = require('../helper/bcrypt');
 const { User } = require('../models');
+const nodemailer = require('nodemailer');
+
+
 class ControllerUser {
     static login(req, res) {
         res.render('login')
@@ -50,7 +53,32 @@ class ControllerUser {
 
         User.create(dataNew)
             .then(() => {
-                res.redirect('/users/login')
+                const transporter = nodemailer.createTransport({
+                    service: 'gmail',
+                    auth: {
+                        user: 'alfa.app14@gmail.com',
+                        pass: 'alfaapp123'
+                    }
+                })
+
+                const mailOptions = {
+                    from: 'alfa.app14@gmail.com',
+                    to: req.body.email,
+                    subject: "Register",
+                    text: 'WELCOME TO ALFA APP'
+                }
+
+                transporter.sendMail(mailOptions, (err, data) => {
+                    if (err) {
+                        throw err
+                    } else {
+                        
+                        res.redirect('/users/login')
+                    }
+                })
+
+
+
             }).catch(err => {
                 console.log(err);
                 res.send(err)
